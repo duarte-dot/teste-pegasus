@@ -1,0 +1,241 @@
+.secao-buscas {
+  padding: 40px 15%;
+}
+
+:root {
+  --white: #fff;
+}
+
+.card {
+  margin-left: 10px;
+  padding: 20px;
+  min-width: 310px;
+  height: 350px;
+  border-radius: 26px;
+  background: var(--white);
+  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.02),
+    0px 64.815px 46.852px 0px rgba(0, 0, 0, 0.02),
+    0px 38.519px 25.481px 0px rgba(0, 0, 0, 0.01),
+    0px 20px 13px 0px rgba(0, 0, 0, 0.01),
+    0px 8.148px 6.519px 0px rgba(0, 0, 0, 0.01),
+    0px 1.852px 3.148px 0px rgba(0, 0, 0, 0);
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.05),
+    0px 64.815px 46.852px 0px rgba(0, 0, 0, 0.05),
+    0px 38.519px 25.481px 0px rgba(0, 0, 0, 0.05),
+    0px 20px 13px 0px rgba(0, 0, 0, 0.05),
+    0px 8.148px 6.519px 0px rgba(0, 0, 0, 0.05),
+    0px 1.852px 3.148px 0px rgba(0, 0, 0, 0.05);
+  transform: scale(1.005);
+  cursor: pointer;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 4px 10px 0px rgba(100, 52, 248, 0.15);
+  margin-bottom: 20px;
+}
+
+.top-image {
+  width: 60%;
+  transform: translateY(20%) translateX(10%);
+}
+
+.image-preview-container {
+  width: 80%;
+}
+
+.circles {
+  position: absolute;
+  right: -20px;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  margin-top: -50px;
+  border-radius: 50%;
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.price {
+  background-color: #f5f5f5;
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.information,
+.search {
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.information-search-price-container {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+
+.anuncios-favoritar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.anuncios {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--LARANJA-1---BEERGAM);
+}
+
+.favoritar {
+  filter: invert(49%) sepia(99%) saturate(1435%) hue-rotate(1deg)
+    brightness(80%) contrast(103%);
+}
+
+.description,
+.price {
+  color: #487af9;
+}
+
+.mercado-livre {
+  color: #84829a;
+}
+
+#secao-buscas-title {
+  margin-bottom: 15px;
+}
+
+.title-product {
+  font-size: 15px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cards-container {
+  display: flex;
+  gap: 34px;
+  overflow: hidden;
+  width: 100%;
+  height: 500px;
+  margin-left: 20px;
+}
+
+.carousel-button {
+  color: #b6ceef;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  margin: -80px;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+@media (max-width: 895px) {
+  .secao-buscas {
+    padding: 20px 5%;
+  }
+
+  .card {
+    min-width: 200px;
+    height: 300px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.02);
+  }
+
+  .card:hover {
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+    transform: scale(1.005);
+  }
+
+  .image-container {
+    height: 45%;
+    margin-bottom: 10px;
+  }
+
+  .top-image {
+    width: 70%;
+    transform: translateY(20%) translateX(0);
+  }
+
+  .circles {
+    right: -10px;
+    top: 18px;
+  }
+
+  .circle {
+    width: 60px;
+    height: 60px;
+    margin-top: -20px;
+  }
+
+  .information-search-price-container {
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .anuncios-favoritar-container {
+    padding: 5px;
+  }
+
+  .title-product {
+    font-size: 10px;
+  }
+
+  .cards-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    height: 400px;
+    padding-bottom: 15px;
+  }
+
+  .carousel-button {
+    display: none;
+  }
+
+  .prev,
+  .next {
+    display: none;
+  }
+}

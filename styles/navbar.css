@@ -1,0 +1,183 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+
+.navbar {
+  z-index: 1000;
+  font-family: "Satoshi", sans-serif;
+
+  width: 80px;
+  padding-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+
+  border-radius: 21px;
+  border: 0.38px solid rgba(245, 239, 235, 0.4);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 60, 183, 0.56) 0%,
+    rgba(40, 66, 119, 0.56) 100%
+  );
+  box-shadow: 0px 42.616px 48.704px -12.176px rgba(102, 37, 0, 0.56),
+    0px 48.704px 48.704px -24.352px rgba(102, 37, 0, 0.56);
+  backdrop-filter: blur(60.87999725341797px);
+
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-profile {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.img-profile:hover {
+  transform: scale(1.1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-icon {
+  width: 1.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.menu-title {
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: Satoshi;
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.304px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.menu-title:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.little-balls-container {
+  display: flex;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.little-ball {
+  width: 10px;
+  height: 10px;
+  background-color: #f6f9ff;
+  border-radius: 50%;
+}
+
+.lb-1 {
+  background-color: #284277;
+}
+
+.lb-2 {
+  background-color: #4679f3;
+}
+
+.lb-3 {
+  background-color: #ff8a00;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin-bottom: 12px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.selected {
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(245, 239, 235, 0.16);
+  border-radius: 9.132px;
+}
+
+.selected-icon {
+  filter: invert(64%) sepia(75%) saturate(3940%) hue-rotate(2deg)
+    brightness(200%) contrast(102%);
+}
+
+.navbar ul li:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.notifications-container {
+  padding: 6px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 7.6px;
+  flex-shrink: 0;
+
+  margin-top: 100%;
+
+  border-radius: 9.132px;
+  background: linear-gradient(
+      0deg,
+      var(--LARANJA-1---BEERGAM, #ff8a00) 0%,
+      var(--LARANJA-1---BEERGAM, #ff8a00) 100%
+    ),
+    #893027;
+  box-shadow: 0px 3.044px 18.264px 0px rgba(204, 100, 6, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.notifications-container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background: linear-gradient(0deg, #ffbd70 0%, #ffbd70 80%);
+  box-shadow: 0px 6px 18px rgba(204, 100, 6, 0.5);
+}
+
+.mobile-menu-icon {
+  display: none;
+}
+
+.closed {
+  transform: translateX(-200%);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .mobile-menu-icon {
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 24px;
+  }
+
+  .navbar {
+    transition: transform 0.5s ease;
+  }
+}
