@@ -65,7 +65,7 @@ const anunciosCards = () => {
   buttonnext.addEventListener("click", () => moveCarousel(1));
 };
 
-const openswitchscript = () => {
+const openSwitchScript = () => {
   function openModal() {
     document.getElementById("productModal").style.display = "flex";
   }
@@ -81,10 +81,6 @@ const openswitchscript = () => {
   document
     .getElementById("open-modal-button")
     .addEventListener("click", openModal);
-
-  function changeImage(imageSrc) {
-    document.getElementById("main-image").src = imageSrc;
-  }
 
   const semanaElement = document.getElementById("semana");
   const horasElement = document.getElementById("horas");
@@ -133,7 +129,7 @@ const openswitchscript = () => {
   });
 };
 
-const testswitch = () => {
+const testSwitch = () => {
   const destacados = document.querySelector(".destacados");
   const favoritos = document.querySelector(".favoritos");
   const anunciosCardsContainer = document.getElementById(
@@ -182,73 +178,55 @@ const catalog = () => {
   });
 };
 
-document
-  .addEventListener("DOMContentLoaded", () => {
-    const main = document.querySelector("main");
+document.addEventListener("DOMContentLoaded", () => {
+  const main = document.querySelector("main");
 
-    fetch("./pages/tendencias.html")
+  function loadPageContent(pageUrl, callback) {
+    fetch(pageUrl)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Erro ao carregar o conteúdo.");
+          throw new Error("Erro ao carregar a página");
         }
         return response.text();
       })
       .then((html) => {
-        console.log("Div externa carregada com sucesso:");
         main.innerHTML = html;
-
-        anunciosCards();
-        testswitch();
-        openswitchscript();
-
-        const trendsIcon = document.getElementById("trends-icon");
-        const catalogIcon = document.getElementById("catalog-icon");
-
-        if (trendsIcon) {
-          trendsIcon.addEventListener("click", () => {
-            fetch("./pages/tendencias.html")
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error("Erro ao carregar a página");
-                }
-                return response.text();
-              })
-              .then((html) => {
-                main.innerHTML = html;
-                anunciosCards();
-                testswitch();
-                openswitchscript();
-              })
-              .catch((error) => {
-                console.error("Erro:", error);
-                main.innerHTML =
-                  "<p>Erro ao carregar a página de tendências.</p>";
-              });
-          });
-        }
-
-        if (catalogIcon) {
-          catalogIcon.addEventListener("click", () => {
-            fetch("./pages/catalogo.html")
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error("Erro ao carregar a página");
-                }
-                return response.text();
-              })
-              .then((html) => {
-                main.innerHTML = html;
-                catalog();
-              })
-              .catch((error) => {
-                console.error("Erro:", error);
-                main.innerHTML =
-                  "<p>Erro ao carregar a página de catálogo.</p>";
-              });
-          });
-        }
+        callback();
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+        main.innerHTML = `<p>Erro ao carregar a página de ${pageUrl}.</p>`;
       });
-  })
-  .catch((error) => {
-    console.error("Erro ao carregar a div externa:", error);
-  });
+  }
+
+  function initializeTrends() {
+    setNavbarEvents();
+    anunciosCards();
+    testSwitch();
+    openSwitchScript();
+  }
+
+  function initializeCatalog() {
+    setNavbarEvents();
+    catalog();
+  }
+
+  function setNavbarEvents() {
+    const trendsIcon = document.getElementById("trends-icon");
+    const catalogIcon = document.getElementById("catalog-icon");
+
+    if (trendsIcon) {
+      trendsIcon.addEventListener("click", () => {
+        loadPageContent("./pages/tendencias.html", initializeTrends);
+      });
+    }
+
+    if (catalogIcon) {
+      catalogIcon.addEventListener("click", () => {
+        loadPageContent("./pages/catalogo.html", initializeCatalog);
+      });
+    }
+  }
+
+  loadPageContent("./pages/tendencias.html", initializeTrends);
+});
